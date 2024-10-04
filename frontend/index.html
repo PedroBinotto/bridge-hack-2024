@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enviar Requisição</title>
+    <title>Vite + React + TS</title>
   </head>
   <body>
-    <h1>Enviar Texto para o Bot</h1>
-    <input type="text" id="textInput" placeholder="Digite algo..." />
-    <button id="sendButton">Enviar</button>
-    <p id="responseText"></p>
-
-    <script>
-      document
-        .getElementById("sendButton")
-        .addEventListener("click", async () => {
-          const inputText = document.getElementById("textInput").value;
-
-          try {
-            const response = await fetch(
-              `http://127.0.0.1:8000/bot_text/${encodeURIComponent(inputText)}`
-            );
-            const data = await response.json();
-            document.getElementById(
-              "responseText"
-            ).innerText = `Resposta do Bot: ${data.text}`;
-          } catch (error) {
-            console.error("Erro:", error);
-            document.getElementById("responseText").innerText =
-              "Erro ao enviar requisição.";
-          }
-        });
-      // arquivo para testar a comunicacao com a API
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
