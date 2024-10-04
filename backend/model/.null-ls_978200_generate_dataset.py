@@ -17,7 +17,7 @@ with open("./je-binary.csv", newline="\n") as csvfile:
         train_texts.append(row[1])
         train_labels.append(row[0])
 
-with open("./assinador-binary.csv", newline="\n") as csvfile:
+with open("./assinador.csv", newline="\n") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=",")
     for row in spamreader:
         test_texts.append(row[1])

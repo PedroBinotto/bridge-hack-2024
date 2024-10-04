@@ -11,21 +11,17 @@ train_labels = []
 test_texts = []
 test_labels = []
 
-with open("./je-binary.csv", newline="\n") as csvfile:
+with open("./je.csv", newline="\n") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=",")
     for row in spamreader:
         train_texts.append(row[1])
         train_labels.append(row[0])
 
-with open("./assinador-binary.csv", newline="\n") as csvfile:
+with open("./assinador.csv", newline="\n") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=",")
     for row in spamreader:
         test_texts.append(row[1])
         test_labels.append(row[0])
-
-print(f"train_labels: {train_labels}")
-print(f"test_labels: {test_labels}")
-
 
 train_texts, val_texts, train_labels, val_labels = train_test_split(
     train_texts, train_labels, test_size=0.2
@@ -67,8 +63,7 @@ model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-unc
 model.to(device)
 model.train()
 
-batch_size = 16
-train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 
 optim = AdamW(model.parameters(), lr=5e-5)
 
@@ -78,7 +73,6 @@ for epoch in range(3):
         input_ids = batch["input_ids"].to(device)
         attention_mask = batch["attention_mask"].to(device)
         labels = batch["labels"].to(device)
-        print(f"Labels shape: {labels.shape}, Batch size: {batch_size}")
         outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
         loss = outputs[0]
         loss.backward()
