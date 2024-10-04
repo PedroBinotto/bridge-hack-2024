@@ -23,7 +23,7 @@ const headerStyle: CSSProperties = {
   padding: "25px",
 };
 const imageStyle: CSSProperties = {
-  paddingRight: "761px",
+  paddingRight: "50vw",
 };
 
 const buttonStyle = {

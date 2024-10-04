@@ -1,5 +1,4 @@
 import { HFlow } from "bold-ui";
-import { CSSProperties } from "react";
 
 interface MessageProps {
   text: string;
@@ -8,29 +7,19 @@ interface MessageProps {
 
 export default function MessageComponent(props: MessageProps) {
   return (
-    <div style={props.user === "user" ? userMessageStyle : botMessageStyle}>
+    <div style={MessageStyle}>
       <HFlow>
-        {props.user === "bot" && <label style={labelStyle}>b_ot</label>}
+        <label style={labelStyle}>{props.user === "user" ? 'você' : 'bot'}</label>
         <p>{props.text}</p>
-        {props.user === "user" && <label style={labelStyle}>você</label>}
       </HFlow>
     </div>
   );
 }
 
 const MessageStyle = {
-  width: "792px",
-  padding: "16px",
-};
-
-const userMessageStyle: CSSProperties = {
-  ...MessageStyle,
-  textAlign: "right",
-};
-
-const botMessageStyle: CSSProperties = {
-  ...MessageStyle,
-  textAlign: "left",
+  height: "64px",
+  width: "50vw",
+  paddingTop: "1vh",
 };
 
 const labelStyle = {

@@ -1,8 +1,8 @@
+import { AxiosResponse } from "axios";
 import { TextField } from "bold-ui";
 import { CSSProperties, useState } from "react";
 import { Message } from "../page/RootView";
 import { getResponse } from "../service/service";
-import { AxiosResponse } from "axios";
 
 interface FormProps {
   messages: Message[]
@@ -18,8 +18,9 @@ export default function FormComponent(props: FormProps) {
   };
 
   const handleClick = () => {
+    setMessages([...messages, { user: "user", text: inputValue }])
     getResponse(inputValue).then((response: AxiosResponse<string>) => {
-      setMessages([...messages, { user: "user", text: inputValue }, { user: "bot", text: response.data }])
+      setMessages([...messages, { user: "bot", text: response.data }])
     });
     setInputValue("");
   };
@@ -40,7 +41,7 @@ export default function FormComponent(props: FormProps) {
 }
 
 const style: CSSProperties = {
-  width: "792px",
+  width: "50vw",
   height: "32px",
   position: "absolute",
   bottom: "0",
