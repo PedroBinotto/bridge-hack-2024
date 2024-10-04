@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { Message } from "../page/RootView";
 import MessageComponent from "./MessageComponent";
 
@@ -17,7 +18,7 @@ export default function ChatComponent(props: ChatProps) {
   );
 }
 
-const chatStyle = {
+const chatStyle: CSSProperties = {
   position: 'absolute',
   bottom: "10vh",
 }

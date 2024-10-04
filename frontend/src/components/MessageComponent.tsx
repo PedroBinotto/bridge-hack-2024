@@ -20,6 +20,7 @@ const MessageStyle = {
   height: "64px",
   width: "50vw",
   paddingTop: "1vh",
+  overflow: 'auto'
 };
 
 const labelStyle = {
