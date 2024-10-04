@@ -25,6 +25,7 @@ export default function FormComponent(props: FormProps) {
   };
 
   return (
+
     <div style={style}>
       <TextField
         type="search"
@@ -43,6 +44,5 @@ const style: CSSProperties = {
   width: "792px",
   height: "32px",
   position: "absolute",
-  bottom: "0",
   padding: "25px",
 };

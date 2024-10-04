@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { Message } from "../page/RootView";
 import MessageComponent from "./MessageComponent";
 
@@ -12,10 +13,16 @@ export default function ChatComponent(props: ChatProps) {
 
 
   return (
-    <div>
+    <div style={style}>
       {messages.map((message) => {
         return (<MessageComponent text={message.text} user={message.user} />)
       })}
     </div>
   );
 }
+
+const style: CSSProperties = {
+  overflowY: "scroll",
+  height: "100vh",
+  background: "white"
+};
