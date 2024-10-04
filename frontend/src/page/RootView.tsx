@@ -9,16 +9,18 @@ export interface Message {
 }
 
 export default function RootView() {
-  const [messages, setMessages] = useState<Message[]>([{
-    user: "lasdasmd",
-    text: "lasdnasld"
-  }]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   return (
-    <>
+    <div style={rootViewStyle}>
       <HeaderComponent />
       <ChatComponent messages={messages} />
       <FormComponent messages={messages} setMessages={setMessages} />
-    </>
+    </div>
   );
+}
+
+const rootViewStyle = {
+  height: "100vh",
+  width: "50vw",
 }

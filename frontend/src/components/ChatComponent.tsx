@@ -6,16 +6,18 @@ interface ChatProps {
 }
 
 export default function ChatComponent(props: ChatProps) {
-  const { messages } = props  // texto enviado pelo usuário é enviado ao Message
-  // chama service e envia o texto para o Message
-  console.log(messages)
-
+  const { messages } = props
 
   return (
-    <div>
+    <div style={chatStyle}>
       {messages.map((message) => {
         return (<MessageComponent text={message.text} user={message.user} />)
       })}
     </div>
   );
+}
+
+const chatStyle = {
+  position: 'absolute',
+  bottom: "10vh",
 }
