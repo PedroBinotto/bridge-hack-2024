@@ -12,6 +12,7 @@ datasets = "^3.0.1"
 torch = "^2.4.1"
 scikit-learn = "^1.5.2"
 fastapi = {extras = ["standard"], version = "^0.115.0"}
+python-dotenv = "^1.0.1"
 
 
 [build-system]
