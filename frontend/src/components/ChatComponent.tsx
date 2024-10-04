@@ -21,4 +21,5 @@ export default function ChatComponent(props: ChatProps) {
 const chatStyle: CSSProperties = {
   position: 'absolute',
   bottom: "10vh",
+  overflowY: 'scroll'
 }
