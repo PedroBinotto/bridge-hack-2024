@@ -1,4 +1,5 @@
 import { HFlow } from "bold-ui";
+import { CSSProperties } from "react";
 
 interface MessageProps {
   text: string;
@@ -16,10 +17,11 @@ export default function MessageComponent(props: MessageProps) {
   );
 }
 
-const MessageStyle = {
+const MessageStyle: CSSProperties = {
   height: "64px",
   width: "50vw",
   paddingTop: "1vh",
+  textAlign: "left",
 };
 
 const labelStyle = {
